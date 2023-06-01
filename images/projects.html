@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>E & M ICT SOLUTIONS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+  </head>
+  <style>
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+body{
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+}
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+.container{
+  max-width: 7770px;
+  margin:auto;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+}
+ul{
+  list-style: none;
+}
+.footer{
+  background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col h4::before{
+  content: '';
+  position: absolute;
+  left:0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child){
+  margin-bottom: 10px;
+}
+.footer-col ul li{
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li:hover{
+  color: #ffffff;
+  padding-left: 8px;
+}
+.footer-col .social-links a{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255,255,255,0.2);
+  margin:0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+<body>
+   <header>
+      <div class="inner-width">
+        <nav class="navigation-menu">
+          <a href="index.html"></i>Home</a>
+          <a href="projects.html"></i>Projects</a>
+          <a href="Skills.html"></i>Skills</a>
+          <a href="Contact_page.html"></i> Contact_Us</a>
+        </nav>
+      </div>
+    </header>
+    <br>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+<br>
+<ul id="myUL">
+  <div class="row">
+  <div class="column">
+    <img src="images/DSCN1757.jpg"width="350" height="350">
+    <li><a href="#"><h2>Data Center Project  </h2></a></li>
+    <p>Data Center Expansion, Trading Floors, Disaster Recovery, Corporate Offices
+     For this Stamford based $15 billion private asset management firm’s new Data Center, NIS installed over 750 strands of 50um Multimode fiber, 1800 BerkTek CAT5E inter-cabinet cables, Corning MTP/LC cable assemblies, 48 custom 6′ cabinets, and a 2 tier 24″ cable tray system.  The project was completed within the 21 day deadline, without interruption to existing services, and includes a 25 Year Ortronics/Corning Manufacturer’s System Warranty.</p>
+  </div>
+  
+  <div class="column">
+    <h2>IT Consultancy Project</h2>
+    <img src="images/blessing1.jpeg"width="350" height="350">
+    <p>IT Consulting Services and Solutions for Business
+
+Are you ready to turn your IT challenges into a competitive advantage? Let’s talk. Ntiva is a Managed Service Provider (MSP) that helps organizations solve their most perplexing technology challenges.
+
+Our Advanced IT Consulting Services help your business stay secure, productive, and profitable. As one of the top 30 MSPs nationwide, we deliver expert guidance on the strategic technology direction you must take to stay ahead of the technology curve — and your competitors.</p>
+  </div>
+  <div class="column">
+    <h2>Health Infomation Systems Project</h2>
+    <p>Customer satisfaction is not just a catch phrase at NIS.  It is a belief in putting the client first and building long term relationships with happy clients.  We work hard to maintain our 95% client retention rate and are working even harder to get to 100%.  See what our clients are saying about us:
+
+    “As a cooperative financial service company, it was a pleasure to work with a company that clearly shares our commitment to personalized service and attention to customer needs.  You clearly demonstrated your commitment throughout the process, from the bid, design, installation, and completion documentation.  We deeply appreciate your pride in workmanship and service, and your delivery of an excellent installation.”</p>
+  </div>
+</div>
+</div>
+</ul>
+
+   <footer class="footer">
+     <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>Contact Information</h4>
+          <ul>
+            <li>E & M ICT SOLUTIONS </li>
+            <li>P.O Box 23</li>
+            <li> Mzuzu </li>
+            <li>Cell: 01234748</li>
+            <li><a href="fa fa-envelope"><i Class="fa fa-envelope"></i> Blessing@eandm.com</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="https://web.facebook.com/?_rdc=1&_rdr"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+     </div>
+     <p style="text-align:center;color:#ffffff"> E & M ICT SOLUTIONS@2023</p>
+  </footer>
+  </body>
+</html>

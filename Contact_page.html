@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>E & M ICT SOLUTIONS</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Create three unequal columns that floats next to each other */
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 40px;
+  height: 635px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+------------
+.form-container {
+  width: 60%;
+  margin: auto;
+  border: 1px solid #f7f7f7;
+}
+label {
+  display: block;
+  font-size: 1rem;
+}
+input, textarea {
+  width: 80%;
+  padding: 2px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+button {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: .3s linear;
+}
+button:hover {
+  color:#273b91;
+  background:;
+}
+.errors {
+  display: block;
+  color: red;
+  margin-top: 5px;
+}
+.error {
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  box-shadow: 0 0 15px 0 rgba(255,36,0,1);
+  
+}
+
+</style>
+</head>
+<body>
+  <header>
+      <div class="inner-width">
+        <nav class="navigation-menu">
+          <a href="index.html"></i>Home</a>
+          <a href="projects.html"></i>Projects</a>
+          <a href="Skills.html"></i>Skills</a>
+          <a href="Contact_page.html"></i> Contact_Us</a>
+        </nav>
+      </div>
+    </header>
+    <body>
+      <section>
+  <div class="column">
+    <h2>Please use the form below to contact us directly.</h2>
+    <div class="form-container">
+  <form name="contactForm" method="post" onsubmit = "return validate()" action="#">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name" >
+    <span class="errors"></span><br>
+
+    <label for="email">Email</label>
+    <input type="text" placeholder="Email address" id="email" name="email" >
+    <span class="errors"></span><br>
+
+    <label for="phone">Phone</label>
+    <input type="text" placeholder="Phone number" id="phone" name="phone" >
+    <span class="errors"></span><br>
+    <label for="subject">Message</label>
+    <textarea placeholder="Your message" cols="132" rows="5" name="subject" id="subject"></textarea>
+    <span class="errors"></span><br>
+
+    <button type="submit" value="Submit" style="background-color:#546FE7;">Submit</button>
+  </form>
+  </div>
+</div>
+  <div class="column">
+     <div class="google-map">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15641.185394279146!2d34.00842865!3d-11.458522600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2smw!4v1685448946778!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+</section>
+<footer>
+</footer>
+</body>
+<script>
+    var validate = function(e) {
+    var fields = document.querySelectorAll('.form-container textarea, .form-container input[type="text"]');
+    var regEx;
+    var removeSpan;
+    var par;
+    var check = false;
+    var val;
+    var errArr = [];
+
+    for (var i = 0; i < fields.length; i++) {
+        if (fields[i].value === "") {
+          
+            if (fields[i].nextElementSibling.classList.contains('error')) {
+              removeSpan = fields[i].nextElementSibling;
+              par = fields[i].parentNode;
+              par.removeChild(removeSpan);
+              fields[i].nextElementSibling.innerHTML = "" + fields[i].placeholder + " is required?";
+              fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+              check = false;
+              errArr.push(fields[i]);
+            }
+            fields[i].nextElementSibling.innerHTML = " " + fields[i].placeholder + " is required?";
+            fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+            check = false;
+            errArr.push(fields[i]);
+        } else {
+
+            // check if message and name values contain valid characters.
+            if (fields[i].id !== 'email' && fields[i].id !== 'phone') {
+                val = isValidChar(fields[i]);
+                if(val === false) {
+                  fields[i].nextElementSibling.innerHTML = "Are you trying to HACK ME!";
+                  fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+                  check = false;
+                  errArr.push(fields[i]);
+                } else {
+                  fields[i].nextElementSibling.innerHTML = "";
+                  fields[i].style.boxShadow = "none";
+                  check = true;
+                }
+            }
+          
+            if(fields[i].id === 'phone') {
+              val = isValidPhone(fields[i]);
+              if(val === false) {
+                fields[i].nextElementSibling.innerHTML = "Your phone number is not valid?";
+                fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+                check = false;
+                errArr.push(fields[i]);
+              } else {
+                fields[i].nextElementSibling.innerHTML = "";
+                fields[i].style.boxShadow = "none";
+                check = true;  
+              }
+            }
+
+            if (fields[i].id === 'email') {
+                val = isValidEmail(fields[i]);
+                if(val === false) {
+                    fields[i].nextElementSibling.innerHTML = "Your email address is not valid?";
+                    fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+                    check = false;
+                    errArr.push(fields[i]);
+                } else {
+                    fields[i].nextElementSibling.innerHTML = "";
+                    fields[i].style.boxShadow = "none";
+                    check = true;
+                }
+            }
+        }
+    }
+  
+    if(check === false) {
+      var count = 0;
+      var toErr = setInterval(function() {
+        var e = errArr[0].offsetTop + -25;
+        var pos = Math.abs(e);
+        if(count < pos) {
+          count ++;
+          window.scrollTo(0, count);
+        } else {
+          clearInterval(toErr);
+        }
+      }, 1);
+    }
+    
+    return check
+
+    // Helper functions.
+    function isValidEmail(e) {
+        regEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var email = e.value;
+        if (!regEx.test(email)) {
+            return false;
+        }
+    }
+
+    function isValidChar(e) {
+        regEx = /^[a-zA-Z@#$%!?^&*()_+\-=\[\]{};':"\\|,.\/? ]*$/;
+        var value = e.value;
+        if (!regEx.test(value)) {
+            return false;
+        }
+    }
+  
+    function isValidPhone(e) {
+      regEx = /^[+]?[(]?[+]?\d{2,4}[)]?[-\s]?\d{2,8}[-\s]?\d{2,8}$/;
+      var value = e.value;
+      if(!regEx.test(value)) {
+        return false;
+      }
+    }
+};
+  </script>
+</html>
+
+
